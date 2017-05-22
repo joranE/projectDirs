@@ -1,0 +1,15 @@
+Package: projectDirs
+Type: Package
+Title: RStudio Addin to Create Default Project Folders
+Version: 0.0.1
+Author: Joran Elias
+Maintainer: Joran Elias <joran.elias@umontana.edu>
+Description: Creates three folders at the top level of a new project called
+R, SQL and Output.
+Depends:
+  R (>= 3.0.0)
+Imports:
+  rstudioapi (>= 0.4)
+License: GPL
+Encoding: UTF-8
+LazyData: true

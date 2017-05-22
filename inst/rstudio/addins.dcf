@@ -1,0 +1,4 @@
+Name: Create Dirs
+Description: Create default folders R, SQL and Output
+Binding: create_folders
+Interactive: false
