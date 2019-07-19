@@ -3,7 +3,12 @@ Description: Create project directories
 Binding: create_folders
 Interactive: false
 
-Name: Move Project Files
-Description: Move files into specified project directories
-Binding: move_files
+Name: Place Files By Extension
+Description: Move files into specified project directories by file extensions
+Binding: move_files_by_ext
+Interactive: false
+
+Name: Place Files By Regex
+Description: Move files into specified project directories by regex on file names
+Binding: move_files_by_regex
 Interactive: false

@@ -3,45 +3,63 @@
 
 # projectDirs
 
-The goal of projectDirs is to …
+projectDirs is an RStudio Addin that allows you to create a configurable
+set of folders (directories) in an RStudio project. Additionally, it
+provides a way to move an existing set of files into these folders based
+on either their extensions or using regular expressions on the file
+names.
 
 ## Installation
 
-You can install the released version of projectDirs from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the released version of projectDirs from GitHub:
 
 ``` r
-install.packages("projectDirs")
+# install.packages("devtools")
+devtools::install_github("joranE/projectDirs")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+It is often desirable to use a consistent directory structure for your
+RStudio projects. After installing projectDirs, a command “Create
+Project Directories” will be added to the Addins drop-down menu in
+RStudio. The default set of folders created are “r”, “data” and
+“figures”, but this can be configured by setting the
+`projectdirs.folders` option in your `.Rprofile`:
 
 ``` r
-## basic example code
+# Put this in your .Rprofile
+options(projectdirs.folders = c("r","input","output","plots","cache"))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+The above example will create folders with those names at the top level
+of the current project.
+
+Often we create an RStudio project around a pre-existing set of files
+that need to be moved into the resulting directory structure.
+projectDirs also provides the Addin command “Place Files By Extension”
+that will move files at the top level of the project into folders based
+on their file extension. This is configurable via a named list in
+`options()`.
+
+For example, setting:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+# Put this in your .Rprofile
+options(projectdirs.file_ext_map = list(r = c("r","R"),data = c("csv","tsv","txt")))
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+will move files with the extensions “r” and “R” into the folder “r” and
+files with the extensions “csv”, “tsv” and “txt” into the folder “data”.
+If folders by these do not exist, no action is taken for that rule.
 
-You can also embed plots, for example:
+Finally, we can also move files into directories based on regular
+expressions on the entire file names with the Addin command “Place Files
+By Regex”. For example, the above mapping could also be done via:
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+# Put this in your .Rprofile
+options(projectdirs.file_regex = list(r = "r$|R$",data = "csv$|tsv$|txt$"))
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
+Once again, if no folder “r” or “data” exists that rule is skipped.
