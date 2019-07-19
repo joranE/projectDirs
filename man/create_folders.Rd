@@ -7,5 +7,5 @@
 create_folders()
 }
 \description{
-Create R, SQL and Output folders.
+Create set of project folders.
 }

@@ -1,4 +1,9 @@
-Name: Create Dirs
-Description: Create default folders R, SQL and Output
+Name: Create Project Directories
+Description: Create project directories
 Binding: create_folders
+Interactive: false
+
+Name: Move Project Files
+Description: Move files into specified project directories
+Binding: move_files
 Interactive: false
