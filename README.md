@@ -25,11 +25,11 @@ RStudio projects. After installing projectDirs, a command “Create
 Project Directories” will be added to the Addins drop-down menu in
 RStudio. The default set of folders created are “r”, “data” and
 “figures”, but this can be configured by setting the
-`projectdirs.folders` option in your `.Rprofile`:
+`projdirs.folders` option in your `.Rprofile`:
 
 ``` r
 # Put this in your .Rprofile
-options(projectdirs.folders = c("r","input","output","plots","cache"))
+options(projdirs.folders = c("r","input","output","plots","cache"))
 ```
 
 The above example will create folders with those names at the top level
@@ -46,7 +46,7 @@ For example, setting:
 
 ``` r
 # Put this in your .Rprofile
-options(projectdirs.file_ext_map = list(r = c("r","R"),data = c("csv","tsv","txt")))
+options(projdirs.file_ext_map = list(r = c("r","R"),data = c("csv","tsv","txt")))
 ```
 
 will move files with the extensions “r” and “R” into the folder “r” and
@@ -59,7 +59,7 @@ By Regex”. For example, the above mapping could also be done via:
 
 ``` r
 # Put this in your .Rprofile
-options(projectdirs.file_regex = list(r = "r$|R$",data = "csv$|tsv$|txt$"))
+options(projdirs.file_regex = list(r = "r$|R$",data = "csv$|tsv$|txt$"))
 ```
 
 Once again, if no folder “r” or “data” exists that rule is skipped.
